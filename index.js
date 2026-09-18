@@ -11,7 +11,7 @@
  * getCohort({cohort: 3476, name: "Charlie"}); // 3476
  */
 export function getCohort(student) {
-  // TODO
+  return student.cohort;
 }
 
 /**
@@ -30,7 +30,8 @@ export function getCohort(student) {
  * sortStudents({cohort: 1, name: "Alice"}, {cohort: 2, name: "Alice"}); // {cohort: 1, name: "Alice"}
  */
 export function sortStudents(studentA, studentB) {
-  // TODO
+if (studentA.name <= studentB.name) {
+    return studentA;
 }
 
 /**
@@ -47,8 +48,10 @@ export function sortStudents(studentA, studentB) {
  * makeFlag("yellow", "triangle"); // { color: "yellow", icon: "triangle" }
  */
 export function makeFlag(color, icon) {
-  // TODO
-}
+return {
+    color: color,
+    icon: icon
+  };}
 
 /**
  * @typedef {{value: number}} Count
@@ -63,7 +66,9 @@ export function makeFlag(color, icon) {
  * increment({value: -5}); // {value: -4}
  */
 export function increment(count) {
-  // TODO
+ return {
+    value: count.value + 1
+  };
 }
 
 /**
@@ -106,8 +111,9 @@ export function getTaxicabDistance(from, to) {
  * getHerbivores([{name: "Rabbit", isHerbivore: true}]); // [{name: "Rabbit", isHerbivore: true}]
  */
 export function getHerbivores(animals) {
-  // TODO
-}
+ return animals.filter((animal) => {
+    return animal.isHerbivore;
+  });}
 
 /**
  * @typedef {{name: string, isCarnivore: boolean}} Animal
@@ -143,8 +149,9 @@ export function getCarnivoreNames(animals) {
  * getTotalCost([{name: "Notebook", quantity: 0, price: 5}]); // 0
  */
 export function getTotalCost(cart) {
-  // TODO
-}
+ return cart.reduce((total, item) => {
+    return total + item.quantity * item.price;
+  }, 0);}
 
 /**
  * Zip is an operation that merges two arrays into a single object.
@@ -163,8 +170,13 @@ export function getTotalCost(cart) {
  * zip(["x"], ["x"]); // {x: "x"}
  */
 export function zip(keys, values) {
-  // TODO
-}
+  const result = {};
+
+  for (let i = 0; i < keys.length; i++) {
+    result[keys[i]] = values[i];
+  }
+
+  return result;}
 
 /**
  * @param {string} word
